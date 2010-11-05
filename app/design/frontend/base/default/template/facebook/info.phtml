@@ -1,0 +1,15 @@
+<div id="facebook-info-wrapper">
+    <div id="facebook-user">
+        <a href="<?php echo $this->getFacebookLink(); ?>" target="_blank">
+            <span class="facebook-username"><?php echo $this->getFacebookUsername()?></span>
+        </a>
+        <br />
+        <?php echo $this->__('Logged in via Facebook');?>
+    </div>
+    <div id="facebook-picture">
+        <a href="<?php echo $this->getFacebookLink(); ?>" target="_blank">
+            <img src="<?php echo $this->getFacebookPicture()?>" alt="<?php echo $this->getFacebookUsername() ?>" />
+        </a>
+    </div>
+
+</div>

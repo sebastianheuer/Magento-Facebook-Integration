@@ -1,0 +1,18 @@
+div#facebook-login, div#facebook-info-wrapper {
+    float:right;
+}
+
+div#facebook-login {
+    padding-top:25px;
+}
+
+div#facebook-user {
+    float: left;
+    margin-right: 5px;
+    padding-top: 10px;
+    text-align: right;
+}
+
+div#facebook-picture {
+    float:right;
+}

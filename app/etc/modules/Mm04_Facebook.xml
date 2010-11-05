@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Mm04_Facebook>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mm04_Facebook>
+    </modules>
+</config>

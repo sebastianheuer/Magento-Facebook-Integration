@@ -1,0 +1,29 @@
+<div id="fb-root"></div>
+<script src="<?php echo Mage::getStoreConfig('facebook/graph_api/js_api_url') ?>"></script>
+<script>
+  // initialize the library and use the php facebook session that should already be initialized at this point.
+  FB.init({
+      appId     : '<?php echo Mage::getStoreConfig('facebook/graph_api/application_id') ?>',
+      session   : '<?php echo $this->getFacebookSession() ?>',
+      status    : true,
+      cookie    : true,
+      xfbml     : true
+  });
+
+  $('facebook-login').observe('click', function() {
+    FB.login(handleSessionResponse, {perms: 'email'});
+  });
+
+  // handle a session response from any of the auth related calls
+  function handleSessionResponse(response) {
+    if (!response.session) {
+        $('facebook-login').show();
+        return;
+    }
+    $('facebook-login').hide();
+    // magento login
+    console.log(FB.getSession().uid);
+    window.location.replace('<?php echo $this->getFacebookLoginUrl() ?>id/' + FB.getSession().uid);
+
+  }
+</script>
