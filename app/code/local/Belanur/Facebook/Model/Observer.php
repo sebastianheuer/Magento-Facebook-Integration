@@ -1,41 +1,44 @@
 <?php
 
-class Mm04_Facebook_Model_Observer
+/**
+ * Observer for Facebook Integration
+ * @author: Sebastian Heuer <belanur@gmail.com>
+ */
+class Belanur_Facebook_Model_Observer
 {
     /**
+     * Use an existing Facebook Session and automatically authenticate the User if possible
      * @param  $observer
      * @return void
      */
-    public function customerSessionInit($observer) {
+    public function customerSessionInit($observer)
+    {
         $session = $observer->getCustomerSession();
-        if(!$session->isLoggedIn()) {
+        if (!$session->isLoggedIn()) {
             // no customer logged in, check facebook session
             $_graph = Mage::getSingleton('facebook/graph');
             $_facebookSession = $_graph->getSession();
-            if(is_array($_facebookSession)) {
+            if (is_array($_facebookSession)) {
                 $uid = $_facebookSession['uid'];
                 $_facebookCustomer = $session->getCustomer();
                 $_facebookCustomer = $_facebookCustomer->loadByFacebookId($uid);
-                if($_facebookCustomer->getId()) {
+                if ($_facebookCustomer->getId()) {
                     $session->setId($_facebookCustomer->getId());
                 }
             }
-        }
-        // check if the facebook session is still valid
+        } // check if the facebook session is still valid
         elseif ($facebookId = $session->getCustomer()->getFacebookId()) {
             $_valid = true;
             $_graph = Mage::getSingleton('facebook/graph');
             $_facebookSession = $_graph->getSession();
-            if(!$_graph->getUserData()) {
+            if (!$_graph->getUserData()) {
+                $_valid = false;
+            } elseif (!is_array($_facebookSession)) {
+                $_valid = false;
+            } elseif ($_facebookSession['uid'] != $facebookId) {
                 $_valid = false;
             }
-            elseif(!is_array($_facebookSession)) {
-                $_valid = false;
-            }
-            elseif($_facebookSession['uid'] != $facebookId) {
-                $_valid = false;
-            }
-            if(!$_valid) {
+            if (!$_valid) {
                 $session->setId(null);
                 $session->unsetAll();
             }

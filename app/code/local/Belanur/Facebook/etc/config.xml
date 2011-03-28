@@ -2,14 +2,14 @@
 
 <config>
     <modules>
-        <Mm04_Facebook>
+        <Belanur_Facebook>
             <version>0.1.0</version>
-        </Mm04_Facebook>
+        </Belanur_Facebook>
     </modules>
     <global>
         <blocks>
             <facebook>
-                <class>Mm04_Facebook_Block</class>
+                <class>Belanur_Facebook_Block</class>
             </facebook>
         </blocks>
         <events>
@@ -24,28 +24,28 @@
         </events>
         <helpers>
             <facebook>
-                <class>Mm04_Facebook_Helper</class>
+                <class>Belanur_Facebook_Helper</class>
             </facebook>
         </helpers>
         <models>
             <customer>
                 <rewrite>
-                    <customer>Mm04_Facebook_Model_Customer_Customer</customer>
+                    <customer>Belanur_Facebook_Model_Customer_Customer</customer>
                 </rewrite>
             </customer>
             <customer_entity>
                 <rewrite>
-                    <customer>Mm04_Facebook_Model_Customer_Entity_Customer</customer>
+                    <customer>Belanur_Facebook_Model_Customer_Entity_Customer</customer>
                 </rewrite>
             </customer_entity>
             <facebook>
-                <class>Mm04_Facebook_Model</class>
+                <class>Belanur_Facebook_Model</class>
             </facebook>
         </models>
         <resources>
             <facebook_setup>
                 <setup>
-                    <module>Mm04_Facebook</module>
+                    <module>Belanur_Facebook</module>
                     <class>Mage_Customer_Model_Entity_Setup</class>
                 </setup>
             </facebook_setup>
@@ -56,17 +56,17 @@
             <customer>
                 <args>
                     <modules>
-                        <Mm04_Facebook before="Mage_Customer">Mm04_Facebook_Customer</Mm04_Facebook>
+                        <Belanur_Facebook before="Mage_Customer">Belanur_Facebook_Customer</Belanur_Facebook>
                     </modules>
                 </args>
             </customer>
         </routers>
         <layout>
-          <updates>
-              <facebook module="Mm04_Facebook">
-                  <file>facebook.xml</file>
-              </facebook>
-          </updates>
+            <updates>
+                <facebook module="Belanur_Facebook">
+                    <file>facebook.xml</file>
+                </facebook>
+            </updates>
         </layout>
     </frontend>
     <default>

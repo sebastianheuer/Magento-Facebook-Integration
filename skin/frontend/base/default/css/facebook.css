@@ -1,9 +1,9 @@
 div#facebook-login, div#facebook-info-wrapper {
-    float:right;
+    float: right;
 }
 
 div#facebook-login {
-    padding-top:25px;
+    padding-top: 25px;
 }
 
 div#facebook-user {
@@ -14,5 +14,5 @@ div#facebook-user {
 }
 
 div#facebook-picture {
-    float:right;
+    float: right;
 }

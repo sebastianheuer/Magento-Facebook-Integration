@@ -2,9 +2,9 @@
 
 <config>
     <modules>
-        <Mm04_Facebook>
+        <Belanur_Facebook>
             <active>true</active>
             <codePool>local</codePool>
-        </Mm04_Facebook>
+        </Belanur_Facebook>
     </modules>
 </config>

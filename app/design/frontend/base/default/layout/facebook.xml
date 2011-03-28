@@ -2,20 +2,22 @@
 <layout version="0.1.0">
     <customer_logged_out>
         <reference name="top.menu">
-            <block type="core/template" name="customer_login_facebook" template="facebook/login.phtml" />
+            <block type="core/template" name="customer_login_facebook" template="facebook/login.phtml"/>
         </reference>
     </customer_logged_out>
     <customer_logged_in>
         <reference name="top.menu">
-            <block type="facebook/userinfo" name="customer_info_facebook" template="facebook/info.phtml" />
+            <block type="facebook/userinfo" name="customer_info_facebook" template="facebook/info.phtml"/>
         </reference>
     </customer_logged_in>
     <default>
         <reference name="head">
-             <action method="addCss"><stylesheet>css/facebook.css</stylesheet></action>
+            <action method="addCss">
+                <stylesheet>css/facebook.css</stylesheet>
+            </action>
         </reference>
         <reference name="before_body_end">
-            <block type="facebook/init" name="facebook_init" template="facebook/init.phtml" />
+            <block type="facebook/init" name="facebook_init" template="facebook/init.phtml"/>
         </reference>
     </default>
 </layout>
