@@ -1,7 +1,6 @@
 <?php
-
+/* @var $this Mage_Customer_Model_Entity_Setup */
 $installer = $this;
-/* @var $installer Mage_Customer_Model_Entity_Setup */
 
 $installer->startSetup();
 
@@ -13,5 +12,4 @@ $installer->addAttribute('customer', 'facebook_id',
                          array('type' => 'static', 'label' => 'Facebook ID', 'sort_order' => 61,));
 
 $installer->endSetup();
-$installer->installEntities();
 ?>

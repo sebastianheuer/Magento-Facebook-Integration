@@ -16,10 +16,10 @@ class Belanur_Facebook_Model_Customer_Entity_Customer extends Mage_Customer_Mode
      * @return Mage_Customer_Model_Entity_Customer
      * @throws Mage_Core_Exception
      */
-    public function loadByFacebookId(Mage_Customer_Model_Customer $customer, $facebookId, $testOnly = false)
+    public function loadByFacebookId(Mage_Customer_Model_Customer $customer, $facebookId)
     {
-        $select = $this->_getReadAdapter()->select()->from($this->getEntityTable(), array
-                                                                                    ($this->getEntityIdField()))//->where('email=?', $email);
+        $select = $this->_getReadAdapter()->select()->from($this->getEntityTable(), array(
+            $this->getEntityIdField()))
             ->where('facebook_id=:facebook_id');
         if ($customer->getSharingConfig()->isWebsiteScope()) {
             if (!$customer->hasData('website_id')) {
